@@ -16,7 +16,7 @@ initDB();
 app.use("/api/v1/users", userRoute);
 
 // vehicle crud
-app.use('api/v1/vehicles',vehicleRoute)
+app.use('/api/v1/vehicles',vehicleRoute)
 
 // booking crud
 

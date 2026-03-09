@@ -26,7 +26,10 @@ const updateVehicle = async(payload:Record<string,unknown>,id:string)=>{
 }
 
 const deleteVehicle= async(id:string)=>{
-  const result = await pool.query(`DELETE FROM vehicles WHERE id = $1`,[id])
+  const result = await pool.query(`DELETE FROM vehicles WHERE id = $1 AND availability_status='available' RETURNING *`,[id])
+  if(result.rowCount == 0){
+    throw new Error('Vehicle not found or currently booked')
+  }
   return result
 }
 

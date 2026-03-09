@@ -59,12 +59,12 @@ const updateVehicle = async (req: Request, res: Response) => {
      if (result.rows.length == 0) {
       res.status(404).json({
         success: false,
-        message: "User not found",
+        message: "Vehicle not found",
       });
     } else {
       res.status(200).json({
         success: true,
-        message: "User successfully updated",
+        message: "Vehicle successfully updated",
       });
     }
   } catch (err: any) {
@@ -80,12 +80,12 @@ const deleteVehicle = async(req: Request, res: Response)=>{
     if (result.rowCount == 0) {
       res.status(404).json({
         success: false,
-        message: "User not found",
+        message: "Vehicle not found",
       });
     } else {
       res.status(200).json({
         success: true,
-        message: "User deleted successfully",
+        message: "Vehicle deleted successfully",
         data: result.rows[0],
       });
     }
